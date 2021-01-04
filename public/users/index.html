@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/users.css">
+    <title>BookBusPH</title>
+</head>
+<body>
+<nav class="black">
+    <ul>
+        <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons white-text">menu</i></a></li>
+        <li class="right"><a href="/index.html" class="white-text">Book Bus<i class="tiny material-icons right white-text">directions_bus</i></a></li>
+    </ul>
+</nav>
+<ul id="slide-out" class="sidenav sidenav-fixed black">
+    <li>
+        <div class="user-view">
+            <div class="background">
+                <img src="/images/sidenavbg3.jpg">
+            </div>
+            <a href="#user"><img src="" id="profilepic" class="circle hide"><i class="material-icons circle large white-text hide" id="profilepicicon"></i></a><br>
+            <a href="#name"><span class="white-text" id="profilefullname"></span></a>
+            <a href="#email"><span class="white-text" id="profileemail"></span></a>
+        </div>
+    </li>
+    <li><a href="#!" class="white-text sidenav-close" id="dashbtn"><i class="material-icons white-text">dashboard</i>Dashboard</a></li>
+    <li><a href="#!" class="white-text sidenav-close" id="seatbtn"><i class="material-icons white-text">directions_bus</i>Reservations</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a style="margin-left: 15px;" class="collapsible-header white-text">Account Settings<i class="material-icons white-text right">arrow_drop_down</i></a>
+                <div class="collapsible-body grey darken-4">
+                    <ul>
+                        <li><div class="divider white-text"></div></li>
+                        <li><a href="#!" class="white-text sidenav-close" id="profbtn">Profile<i class="material-icons right white-text">account_circle</i></a></li>
+                        <li><div class="divider white-text"></div></li>
+                        <li><a href="#!" class="white-text sidenav-close" id="passbtn">Reset Password<i class="material-icons right white-text">lock</i></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li><div class="divider" class="white-text"></div></li>
+    <li><a href="#!" class="waves-effect waves-light white-text" id="logoutBtn"><i class="material-icons white-text">exit_to_app</i>Logout</a></li>
+</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col m3 l3"></div>
+        <div class="col s12 m9 l9">
+            <div class="row">
+                <div class="col s12 m12 l12" id="dashboard">
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>dashboard</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12 hide" id="reservation">
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>reservations</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12 hide" id="account">
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>account</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12 hide" id="password">
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>password</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="verifyEmailModal">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12 m12 l12 center-align">
+                    <i class="material-icons red-text large">email</i>
+                    <h5 class="red-text">Please verify your account</h5>
+                    <p>An email verification was sent to your email address, please click the link provided to confirm your registration.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="profileModal">
+    <div class="modal-content">
+        <div class="center-align">
+            <h5>Create profile</h5>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">account_circle</i>
+                    <input type="text" name="fullname" id="fullname" class="validate">
+                    <label for="fullname">Full name</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="nameMissing"><p>Fullname field required</p></h6>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">location_on</i>
+                    <input type="text" name="address" id="address" class="validate">
+                    <label for="address">Address</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="addressError"><p>Address field required</p></h6>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">insert_invitation</i>
+                    <input type="text" class="datepicker" id="dob">
+                    <label for="address">Date of birth</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="dobError"><p>Birthday field required</p></h6>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <i class="material-icons prefix">wc</i>
+                    <select name="gender" id="gender">
+                        <option value="" disabled selected>Select option</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <label>Gender</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="genderError"><p>Gender field required</p></h6>
+                </div>
+                <div class="col s12 m12 l12 center-align">
+                    <button class="btn waves-effect waves-light black" id="filloutNextBtn">NEXT<i class="material-icons right white-text">send</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="occupationModal">
+    <div class="modal-content">
+        <div class="center-align">
+            <h5>Please select an occupation:</h5><br>
+        </div>
+        <div class="row">
+            <div class="collection center-align">
+                <a class="collection-item black-text waves-effect waves-dark" id="workerBtn">Worker</a>
+            </div> 
+            <div class="collection center-align">
+                <a class="collection-item black-text waves-effect waves-dark" id="studentBtn">Student</a>
+            </div>
+            <div class="collection center-align">
+                <a class="collection-item black-text waves-effect waves-dark" id="seniorBtn">Senior Citizen</a>
+            </div>
+            <div class="collection center-align">
+                <a class="collection-item black-text waves-effect waves-dark" id="pwdBtn">Person With Disability</a>
+            </div>
+            <div class="center-align">
+                <a class="btn-flat blue-text waves-effect waves-dark">Skip <i class="material-icons blue-text right">navigate_next</i></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="studentModal">
+    <div class="modal-content">
+        <div class="container">
+            <h5 class="center-align"><span>Please upload your Student ID</span></h5>
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <progress value="0" max="100" id="studentUploader">0%</progress>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <input type="file" value="upload" id="studentFileBtn">
+                    <h6 class="green-text center-align hide" style="font-size: small;" id="studComplete">Upload complete!</h6>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <button class="btn waves-effect waves-light black" id="studSubBtn" disabled>Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="seniorModal">
+    <div class="modal-content">
+        <div class="container">
+            <h5 class="center-align"><span>Please upload your Senior Citizenship ID</span></h5>
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <progress value="0" max="100" id="seniorUploader">0%</progress>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <input type="file" value="upload" id="seniorFileBtn">
+                    <h6 class="green-text center-align hide" style="font-size: small;" id="senComplete">Upload complete!</h6>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <button class="btn waves-effect waves-light black" id="senSubBtn" disabled>Submit<i class="material-icons white-text">send</i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="pwdModal">
+    <div class="modal-content">
+        <div class="container">
+            <h5 class="center-align"><span>Please upload your PWD ID</span></h5>
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <progress value="0" max="100" id="pwdUploader">0%</progress>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <input type="file" value="upload" id="pwdFileBtn">
+                    <h6 class="green-text center-align hide" style="font-size: small;" id="pwdComplete">Upload complete!</h6>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <button class="btn waves-effect waves-light black" id="pwdSubBtn" disabled>Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="successModal">
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12 m12 l12 center-align">
+                <i class="large material-icons green-text">verified_user</i>
+            </div>
+            <div class="col s12 m12 l12 center-align">
+                <p>Your identification has been successfully submitted!</p>
+            </div>
+            <div class="col s12 m12 l12 center-align">
+                <button class="btn waves-effect waves-light black modal-close">Confirm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-storage.js"></script>
+<script src="/scripts/materialize.min.js"></script>
+<script src="/scripts/users.js"></script>
+</body>
+</html>

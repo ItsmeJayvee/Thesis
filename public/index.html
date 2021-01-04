@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <title>BookBusPH</title>
+</head>
+<body>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper blue lighten-4">
+            <a href="index.html" class="brand-logo"><img src="images/logo.png" height="45" style="margin-left: 10px; margin-top: 5px;"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons grey-text text-darken-3">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="host.html" class="grey-text text-darken-4" id="hostbtn1">Host a bus</a></li>
+                <li><a href="users/index.html" class="waves-effect waves-light grey-text text-darken-3 hide" id="accountbtn1">Profile</a></li>
+                <li><a href="#" data-target="loginModal" class="modal-trigger grey-text text-darken-4" id="loginbtn1">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<ul class="sidenav sidenav-close blue lighten-4" id="mobile-demo">
+    <li><a href="host.html" class="grey-text text-darken-3" id="hostbtn2">Host a bus</a></li>
+    <li><a href="users/index.html" class="waves-effect waves-light grey-text text-darken-3 hide" id="accountbtn2">Profile</a></li>
+    <li><a href="#" data-target="loginModal" class="modal-trigger grey-text text-darken-3" id="loginbtn2">Login</a></li>
+</ul>
+
+<div class="parallax-container">
+    <div class="parallax"><img src="images/bus1690x1127.jpg"></div>
+</div>
+<div class="section blue lighten-4">
+    <div class="row container">
+        <h2 class="header grey-text text-darken-3">BookBusPH</h2>
+        <p class="grey-text text-darken-3">Welcome! Reserve bus seats online from BookBusPH and get a special discount if you are a student, senior citizen or a person with disabilities. Select a departure and destination city, departure date and the number of seats and click on search. This will show you the necessary details and you can book a seat. Once booked, you will then be asked to pay to complete the reservation.</p>
+    </div>
+    <div class="container"> 
+        <div class="row">
+            <div class="input-field col s12 m3 l3">
+                <select name="from" id="from" >
+                    <option value="" disabled selected>Select</option>
+                    <option value="Banaybanay">Banaybanay</option>
+                    <option value="Baganga">Baganga</option>
+                    <option value="Boston">Boston</option>
+                    <option value="Cateel">Cateel</option>
+                    <option value="Caraga">Caraga</option>
+                    <option value="Carmen">Carmen</option>
+                    <option value="Compostela Valley">Compostela Valley</option>
+                    <option value="Davao City">Davao City</option>
+                    <option value="Digos City">Digos City</option>
+                    <option value="Gov. Generoso">Gov. Generoso</option>
+                    <option value="Kamanlangan">Kamanlangan</option>
+                    <option value="Kapalong">Kapalong</option>
+                    <option value="Laak">Laak</option>
+                    <option value="Lupon">Lupon</option>
+                    <option value="Mabini">Mabini</option>
+                    <option value="Maco">Maco</option>
+                    <option value="Manay">Manay</option>
+                    <option value="Maragusan">Maragusan</option>
+                    <option value="Mati">Mati</option>
+                    <option value="Mawab">Mawab</option>
+                    <option value="Monkayo">Monkayo</option>
+                    <option value="Montevista">Montevista</option>
+                    <option value="Nabunturan">Nabunturan</option>
+                    <option value="New Bataan">New Bataan</option>
+                    <option value="Panabo City">Panabo City</option>
+                    <option value="Pantukan">Pantukan</option>
+                    <option value="San Isidro">San Isidro</option>
+                    <option value="Tagum City">Tagum City</option>
+                    <option value="Tarragona">Tarragona</option>
+                </select>
+                <label for="from" class="grey-text text-darken-3">Depart from</label>
+                <h6 class="red-text text-lighten-4 center-align hide" style="font-size: small;" id="errFrom"><p>Field should not be empty!</p></h6>
+            </div>
+            <div class="input-field col s12 m3 l3">
+                <select name="to" id="to">
+                    <option value="" disabled selected>Select</option>
+                    <option value="Banaybanay">Banaybanay</option>
+                    <option value="Baganga">Baganga</option>
+                    <option value="Boston">Boston</option>
+                    <option value="Cateel">Cateel</option>
+                    <option value="Caraga">Caraga</option>
+                    <option value="Carmen">Carmen</option>
+                    <option value="Compostela Valley">Compostela Valley</option>
+                    <option value="Davao City">Davao City</option>
+                    <option value="Digos City">Digos City</option>
+                    <option value="Gov. Generoso">Gov. Generoso</option>
+                    <option value="Kamanlangan">Kamanlangan</option>
+                    <option value="Kapalong">Kapalong</option>
+                    <option value="Laak">Laak</option>
+                    <option value="Lupon">Lupon</option>
+                    <option value="Mabini">Mabini</option>
+                    <option value="Maco">Maco</option>
+                    <option value="Manay">Manay</option>
+                    <option value="Maragusan">Maragusan</option>
+                    <option value="Mati">Mati</option>
+                    <option value="Mawab">Mawab</option>
+                    <option value="Monkayo">Monkayo</option>
+                    <option value="Montevista">Montevista</option>
+                    <option value="Nabunturan">Nabunturan</option>
+                    <option value="New Bataan">New Bataan</option>
+                    <option value="Panabo City">Panabo City</option>
+                    <option value="Pantukan">Pantukan</option>
+                    <option value="San Isidro">San Isidro</option>
+                    <option value="Tagum City">Tagum City</option>
+                    <option value="Tarragona">Tarragona</option>
+                </select>
+                <label for="to" class="grey-text text-darken-3">Arrive to</label>
+                <h6 class="red-text text-lighten-4 center-align hide" style="font-size: small;" id="errTo"><p>Field should not be empty!</p></h6>
+            </div>
+            <div class="input-field col s12 m3 l3">
+                <i class="material-icons prefix">event</i>
+                <input type="text" name="bookDate" id="bookDate" class="datepicker">
+                <label for="bookDate">Select Date</label>
+                <h6 class="red-text text-lighten-4 center-align hide" style="font-size: small;" id="errDate"><p>Field should not be empty!</p></h6>
+            </div>
+            <div class="input-field col s12 m3 l3 center-align">
+                <button class="waves-effect waves-light blue btn" id="searchBtn">Search<i class="material-icons grey-text text-darken-3 right">search</i></button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <h5 class="red-text center-align hide" id="noResult"><b>Sorry, there are no buses available for this route yet..</b></h5>
+                <ul id="busResults">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="images/buses1690x1127.jpg"></div>
+</div>
+
+<div class="modal modal-fixed-footer blue lighten-4" id="loginModal">
+    <div class="modal-content">
+        <div class="center-align">
+            <h5>Login</h5>
+            <h6 class="red-text hide" style="font-size: small;" id="loginError"></h6>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">email</i>
+                    <input type="text" name="email" id="email" class="validated">
+                    <label for="email">Email address</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="emailError"><b>Email field required</b></h6>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">lock</i>
+                    <input type="password" name="password" id="password" class="validated">
+                    <label for="email">Password</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="passError"><b>Password field required</b></h6>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <button class="btn waves-effect waves-light blue" id="loginBtn">Login</button>
+                </div>
+                <div class="col s6 m6 l6 left align">
+                    <p class="grey-text text-darken-3">Don't have an account?</p>
+                    <a href="#registerModal" class="modal-trigger modal-close blue-text">Register here</a>
+                </div>
+                <div class="col s6 m6 l6 right-align">
+                    <p class="grey-text text-darken-3">Forgot your password?</p>
+                    <a href="" class="red-text">Reset password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer blue lighten-4 right-align">
+        <button class="btn-small waves-effect waves-light blue modal-close"><i class="material-icons">close</i></button>
+    </div>
+</div>
+
+<div class="modal modal-fixed-footer blue lighten-4" id="registerModal">
+    <div class="modal-content">
+        <div class="center-align">
+            <h5>Register</h5>
+            <h6 class="red-text hide" style="font-size: small;" id="registerError"></h6>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">email</i>
+                    <input type="text" name="registerEmail" id="registerEmail" class="validate">
+                    <label for="registerEmail">Email address</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="regEmailError"><b>Email field required</b></h6>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">lock_open</i>
+                    <input type="password" name="registerPassword" id="registerPassword" class="validate">
+                    <label for="registerPassword">Password</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="conPass1"><b>Password does not match</b></h6>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="regPassError"><b>Password field required</b></h6>
+                </div>
+                <div class="input-field col s12 m12 l12">
+                    <i class="material-icons prefix">lock_outline</i>
+                    <input type="password" name="confirmPassword" id="confirmPassword" class="validate">
+                    <label for="confirmPassword">Confirm password</label>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="conPass2"><b>Password does not match</b></h6>
+                    <h6 class="red-text center-align hide" style="font-size: small;" id="regConPassError"><b>Password field required</b></h6>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <button class="waves-effect waves-light btn blue" id="registerBtn">Create Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer blue lighten-4">
+        <button class="btn-small waves-effect waves-light blue modal-close"><i class="material-icons">close</i></button>
+    </div>
+</div>
+
+<div class="modal blue lighten-4" id="loadModal">
+    <div class="modal-content center">
+        <div class="row">
+            <div class="input-field col s12 m12 l12 center-align">
+                <h4><span>Logging in</span></h4>
+            </div>
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-fixed-footer bottom-sheet blue lighten-4" id="bookModal">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m4 l4 center-align" id="hidecheck1">
+                    <img height="130" width="130" id="comppic">
+                </div>
+                <div class="col s12 m4 l4 center-align" id="hidecheck2">
+                    <ul>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Bus line: <b id="comp"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Origin: <b id="departFrom"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Destination: <b id="arriveTo"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Departure time: <b id="departTime"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Available seats: <b id="seats"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Travel fare amount: <b id="fare"></b></li>
+                    </ul>
+                </div>
+                <div class="col s12 m4 l4 center-align" id="hidecheck3">
+                    <div class="input-field col s3 m3 l3 right-align">
+                        <button class="btn-flat waves-effect waves-light" id="lessticket"><i class="material-icons red-text">remove</i></button>
+                    </div>
+                    <div class="input-field col s3 m5 l5">
+                        <input type="number" id="numberoftickets" value="1" readonly>
+                        <label class="active" for="numberoftickets">No. of Seats</label>
+                    </div>
+                    <div class="input-field col s3 m3 l3 left-align">
+                        <button class="btn-flat waves-effect waves-light" id="addticket"><i class="material-icons green-text">add</i></button>
+                    </div>
+                    <div class="input-field col s12 m12 l12 center-align">
+                        <button class="btn waves-effect waves-light indigo" id="checkBtn">Check out</button>
+                    </div>
+                </div>
+                <div class="col s12 m6 l6 hide" id="leftpaymentForm">
+                    <h4>Check out</h4>
+                    <hr>
+                    <ul>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Bus line:             <b id="comp2"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Origin:               <b id="departFrom2"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Destination:          <b id="arriveTo2"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Departure time:       <b id="departTime2"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Purchased seats:      <b id="seats2"></b></li>
+                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Total fare amount:    <b id="fare2"></b></li>
+                    </ul>
+                </div>
+                <div class="col s12 m6 l6 hide" id="rightpaymentForm">
+                    <div class="card">
+                        <div class="card-content">
+                            <h6 class="center-align">Payment information</h6>
+                            <hr>
+                            <div class="row">
+                                <div class="input-field col s12 m12 l12">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input type="text" name="namecard" id="fullname">
+                                    <label for="namecard">Name on card</label>
+                                </div>
+                            </div>
+                            <form id="payment-form">
+                                <div id="card-element">
+                                  <!-- Elements will create input elements here -->
+                                </div>
+                                    <!-- We'll put the error messages in this element -->
+                                <div id="card-errors" role="alert"></div>
+                                <div class="row">
+                                    <div class="input-field col s12 m12 l12 center-align">
+                                        <button class="btn waves-effect waves-light indigo lighten-1" id="submit">Pay</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer blue lighten-4">
+        <button class="modal-close waves-effect waves-light btn blue"><i class="material-icons grey-text text-darken-3">close</i></button>
+    </div>
+</div>
+
+<footer class="page-footer blue lighten-4">
+    <div class="container">
+        <div class="row">
+            <div class="col l6 s6">
+                <h5 class="grey-text text-darken-3"><b>BookBusPH</b></h5>
+                <a href="/index.html"><img src="images/logo.png" alt=""></a>
+            </div>
+            <div class="col l6 s6 right-align">
+                <ul>
+                    <li><a class="grey-text text-darken-4" href="host.html" id="footbus"><b>Host a bus</b></a></li>
+                    <li><a class="grey-text text-darken-4" href="users/index.html" id="footprofile"><b>Profile</b></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="container center-align grey-text text-darken-4">
+        © 2020 BookBusPH All Rights Reserved
+        </div>
+    </div>
+</footer>
+<script src="scripts/jquery.min.js"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+<script src="scripts/materialize.min.js"></script>
+<script src="scripts/index.js"></script>
+</body>
+</html>

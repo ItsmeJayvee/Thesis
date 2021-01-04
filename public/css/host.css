@@ -1,0 +1,29 @@
+#uploader{
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#photouploader{
+  -webkit-appearance: none;
+    appearance: none;
+    width: 52%;
+    margin-bottom: -10px;
+}
+#frontUploader{
+  -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin-bottom: 10px;
+}
+#backUploader{
+  -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    margin-bottom: 10px;
+}

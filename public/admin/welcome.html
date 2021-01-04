@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <title>Admin Panel</title>
+</head>
+<body>
+<nav class="black">
+    <a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a>
+</nav>
+<ul id="slide-out" class="sidenav sidenav-fixed black">
+    <li><a href="#!" data-target="dashboard" class="waves-effect waves-light white-text sidenav-close" id="dashbtn"><i class="material-icons left white-text">dashboard</i>Dashboard</a></li>
+    <li><a href="#!" data-target="subscribers" class="waves-effect waves-light white-text sidenav-close" id="busbtn"><i class="material-icons left white-text">directions_bus</i>Bus Companies</a></li>
+    <li><a href="#!" data-target="verifications" class="waves-effect waves-light white-text sidenav-close" id="verifybtn"><span class="new badge red" id="verifybadge"></span><i class="material-icons left white-text">verified_user</i>Verifications</a></li>
+    <div class="divider white-text"></div>
+    <li><a href="#!" class="waves-effect waves-light white-text" id="logoutBtn"><i class="material-icons left white-text">exit_to_app</i>Logout</a></li>
+</ul>
+
+<div class="container">
+    <div class="row">
+        <div class="col m3 l3"></div>
+        <div class="col s12 m9 l9">
+            <div class="row">
+                <div class="col s12 m12 l12" id="dashboard">
+                    <div class="row">
+                        <div class="col s12 m4 l4">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h5 class="center-align" style="font-size: small;"><b>Subscription Request</b></h5>
+                                    <h4 class="center-align"><b id="busval"></b></h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4 l4">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h5 class="center-align" style="font-size: small;"><b>Discount Request</b></h5>
+                                    <h4 class="center-align"><b id="idval"></b></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12 hide" id="subscribers">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <ul class="tabs black">
+                                        <li class="tab col s6 m6 l6"><a href="#activeBus" class="white-text">Active</a></li>
+                                        <li class="tab col s6 m6 l6"><a href="#inactiveBus" class="white-text">Inactive</a></li>
+                                    </ul>
+                                </div>
+                                <div id="activeBus" class="col s12 m12 l12">
+                                    <table class="striped highlight">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Bus Company</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="activeBusComps">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="inactiveBus" class="col s12 m12 l12">
+                                    <table class="striped highlight">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Bus Company</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="inactiveBusComps">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l12 hide" id="verifications">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col s12 m12 l12">
+                                    <ul class="tabs">
+                                        <li class="tab col s6 m6 l6 black"><a href="#test1" class="white-text waves-effect waves-light">Business Permit</a></li>
+                                        <li class="tab col s6 m6 l6 black"><a href="#test2" class="white-text waves-effect waves-light">Discount Request</a></li>
+                                    </ul>
+                                </div>
+                                <div id="test1" class="col s12 m12 l12">
+                                    <table class="striped highlight">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Company name</th>
+                                                <th>Document</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="printbp">
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div id="test2" class="col s12 m12 l12">Test 2</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="busAccepted">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12 m12 l12 center-align">
+                    <i class="material-icons large green-text">verified_user</i>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <p><b>Bus company has been accepted and verified!</b></p>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <button class="modal-close black btn waves-effect waves-light white-text">Confirm</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="busRejected">
+    <div class="modal-content">
+        <div class="container">
+            <div class="row">
+                <div class="input-field col s12 m12 l12 center-align">
+                    <i class="material-icons large red-text">warning</i>
+                </div>
+                <div class="input-field col s12 m12 l12 center-align">
+                    <p class="red-text"><b>Confirm rejecting the bus company's request?</b></p>
+                </div>
+                <div class="input-field col s6 m6 l6 center-align">
+                    <button class="btn waves-effect waves-light black white-text" id="confirmRejBtn">Confirm</button>
+                </div>
+                <div class="input-field col s6 m6 l6 center-align">
+                    <button class="btn modal-close waves-effect waves-light red white-text">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/scripts/jquery.min.js"></script>
+<script src="/scripts/materialize.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+<script src="/scripts/admin.js"></script>
+</body>
+</html>

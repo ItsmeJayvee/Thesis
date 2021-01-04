@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <title>Admin Panel</title>
+</head>
+<body>
+<div class="row">
+    <div class="col m4 l4"></div>
+    <div class="col s12 m4 l4">
+        <div class="card">
+            <div class="card-content">
+                <div class="container center-align">
+                    <div class="row">
+                        <div class="input-field col s12 m12 l12">
+                            <h5><p>Admin Login</p></h5>
+                            <h6 class="red-text center-align hide" id="loginErr"></h6>
+                        </div>
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">email</i>
+                            <input type="text" name="adminEmail" id="adminEmail" class="validate">
+                            <label for="adminEmail">Email address</label>
+                            <h6 class="red-text center-align hide" style="font-size: x-small;" id="adminErr1"><p>Email is required!</p></h6>
+                        </div>
+                        <div class="input-field col s12 m12 l12">
+                            <i class="material-icons prefix">lock_open</i>
+                            <input type="password" name="adminPassword" id="adminPassword" class="validate">
+                            <label for="adminPassword">Password</label>
+                            <h6 class="red-text center-align hide" style="font-size: x-small;" id="adminErr2"><p>Password is required!</p></h6>
+                        </div>
+                        <div class="input-field col s12 m12 l12 center-align">
+                            <button class="btn waves-effect waves-light black" id="adminLoginBtn">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col m4 l4"></div>
+</div>
+
+<script src="/scripts/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="/scripts/materialize.min.js"></script>
+<script src="/scripts/adminlogin.js"></script>
+</body>
+</html>
