@@ -117,7 +117,6 @@
         } else {
           // Send the token to your server.
           stripeTokenHandler(result.token);
-          submit.disabled = true;
         }
       });
     });
