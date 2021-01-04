@@ -2,7 +2,6 @@ const express = require('express');
 const stripe = require('stripe')('sk_test_51HpMAsGKEizdInGXqC9Lg2OAYU7paQ4KqYregRSJRYEHK4YQVtursDzR2MYiP6bLOPY6KjLR58Xrhy3Oj9GrlliA00cjAPLCUQ');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const { static } = require('express');
 
 const app = express();
 
@@ -15,12 +14,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(`${__dirname}/public`))
 
+app.get('/', (req,res)=>{
+    res.getFile('/index.html');
+});
+
 app.post('/charge', (req, res)=>{
     const amount = req.body.chargeAmount * 100;
     const accountID = req.body.stripeAccount;
     stripe.charges.create({
         amount,
-        currency: 'USD',
+        currency: 'PLN',
         source: req.body.stripeToken,
     },{
         stripe_account: accountID,

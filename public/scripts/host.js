@@ -60,8 +60,6 @@
     var busplate            = document.getElementById('busplate');
     var busdep              = document.getElementById('busdeparture');
     var seatcap             = document.getElementById('seatcap');
-    var driver              = document.getElementById('driver');
-    var helper              = document.getElementById('helper');
     var regbusbtn           = document.getElementById('regbus');
     var printActiveBus      = document.querySelector('#activeBus');
     var printInactiveBus    = document.querySelector('#inactiveBus');
@@ -275,8 +273,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.add('hide');
         }else if(to.value == ""){
             document.getElementById('errorfrm').classList.add('hide');
@@ -285,8 +281,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.add('hide');
         }else if(busnum.value == ""){
             document.getElementById('errorfrm').classList.add('hide');
@@ -295,8 +289,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.add('hide');
         }else if(busplate.value == ""){
             document.getElementById('errorfrm').classList.add('hide');
@@ -305,8 +297,6 @@
             document.getElementById('errorbusplate').classList.remove('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.add('hide');
         }else if(busdep.value == ""){
             document.getElementById('errorfrm').classList.add('hide');
@@ -315,8 +305,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.remove('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.add('hide');
         }else if(seatcap.value == ""){
             document.getElementById('errorfrm').classList.add('hide');
@@ -325,28 +313,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.remove('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
-            document.getElementById('errorfare').classList.add('hide');
-        }else if(driver.value == ""){
-            document.getElementById('errorfrm').classList.add('hide');
-            document.getElementById('errorto').classList.add('hide');
-            document.getElementById('errorbusnum').classList.add('hide');
-            document.getElementById('errorbusplate').classList.add('hide');
-            document.getElementById('errordeparture').classList.add('hide');
-            document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.remove('hide');
-            document.getElementById('errorhelper').classList.add('hide');
-            document.getElementById('errorfare').classList.add('hide');
-        }else if(helper.value == ""){
-            document.getElementById('errorfrm').classList.add('hide');
-            document.getElementById('errorto').classList.add('hide');
-            document.getElementById('errorbusnum').classList.add('hide');
-            document.getElementById('errorbusplate').classList.add('hide');
-            document.getElementById('errordeparture').classList.add('hide');
-            document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.remove('hide');
             document.getElementById('errorfare').classList.add('hide');
         }else if(fare.value == ""){
             document.getElementById('errorfrm').classList.add('hide');
@@ -355,8 +321,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.remove('hide');
         }else{
             document.getElementById('errorfrm').classList.add('hide');
@@ -365,8 +329,6 @@
             document.getElementById('errorbusplate').classList.add('hide');
             document.getElementById('errordeparture').classList.add('hide');
             document.getElementById('errorseat').classList.add('hide');
-            document.getElementById('errordriver').classList.add('hide');
-            document.getElementById('errorhelper').classList.add('hide');
             document.getElementById('errorfare').classList.add('hide');
 
             db.collection('buscompany').doc(uid).get().then(function(doc){
@@ -599,12 +561,6 @@
                         $(document).ready(function(){
                             $('#validateModal').modal('open');
                         });
-                    }
-                    if(doc.data().stripeaccount != null){
-                        setupStripe.classList.add('hide');
-                        stripeaccount.value = doc.data().stripeaccount;
-                    }else{
-                        setupStripe.classList.remove('hide');
                     }
                 });
                 db.collection('bus').where('companyId', '==', uid).where('active', '==', true).onSnapshot(snapshot=>{

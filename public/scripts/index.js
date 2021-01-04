@@ -78,6 +78,7 @@
     function stripeTokenHandler(token) {
         // Insert the token ID into the form so it gets submitted to the server
         var form = document.getElementById('payment-form');
+
         var hiddenInput = document.createElement('input');
         hiddenInput.setAttribute('type', 'hidden');
         hiddenInput.setAttribute('name', 'stripeToken');
@@ -91,8 +92,8 @@
         hiddenDescription.setAttribute('name', 'chargeDescription');
         hiddenDescription.setAttribute('value', comp2.textContent);
         form.appendChild(hiddenInput);
-        // Submit the form
-        form.submit();
+        form.appendChild(hiddenAmount);
+        form.appendChild(hiddenDescription);
     }
 
     card.addEventListener('change', function(event) {
@@ -105,6 +106,7 @@
     });
 
     var form = document.getElementById('payment-form');
+
     form.addEventListener('submit', function(event) {
       event.preventDefault();
       stripe.createToken(card).then(function(result) {
@@ -115,6 +117,7 @@
         } else {
           // Send the token to your server.
           stripeTokenHandler(result.token);
+          submit.disabled = true;
         }
       });
     });

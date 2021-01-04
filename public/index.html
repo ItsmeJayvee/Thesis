@@ -268,38 +268,49 @@
                     </div>
                 </div>
                 <div class="col s12 m6 l6 hide" id="leftpaymentForm">
-                    <h4>Check out</h4>
+                    <h6>Check out</h6>
                     <hr>
-                    <ul>
-                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Bus line:             <b id="comp2"></b></li>
-                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Origin:               <b id="departFrom2"></b></li>
-                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Destination:          <b id="arriveTo2"></b></li>
-                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Departure time:       <b id="departTime2"></b></li>
-                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Purchased seats:      <b id="seats2"></b></li>
-                        <li style="font-size: medium;" class="grey-text text-darken-3 left-align">Total fare amount:    <b id="fare2"></b></li>
-                    </ul>
+                    <table class="striped responsive-table">
+                        <tr>
+                            <td style="font-size: small;">Bus line:</td>
+                            <td style="font-size: small;"><b id="comp2"></b></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: small;">Origin:</td>
+                            <td style="font-size: small;"><b id="departFrom2"></b></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: small;">Destination:</td>
+                            <td style="font-size: small;"><b id="arriveTo2"></b></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: small;">Departure time:</td>
+                            <td style="font-size: small;"><b id="departTime2"></b></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: small;">Purchased seats:</td>
+                            <td style="font-size: small;"><b id="seats2"></b></td>
+                        </tr>
+                        <tr>
+                            <td style="font-size: small;">Total fare amount:</td>
+                            <td style="font-size: small;"><b id="fare2"></b></td>
+                        </tr>
+                    </table>
                 </div>
                 <div class="col s12 m6 l6 hide" id="rightpaymentForm">
                     <div class="card">
                         <div class="card-content">
                             <h6 class="center-align">Payment information</h6>
                             <hr>
-                            <div class="row">
-                                <div class="input-field col s12 m12 l12">
-                                    <i class="material-icons prefix">account_circle</i>
-                                    <input type="text" name="namecard" id="fullname">
-                                    <label for="namecard">Name on card</label>
-                                </div>
-                            </div>
-                            <form id="payment-form">
-                                <div id="card-element">
-                                  <!-- Elements will create input elements here -->
-                                </div>
-                                    <!-- We'll put the error messages in this element -->
-                                <div id="card-errors" role="alert"></div>
+                            <form id="payment-form" action="/charge" method="POST">
                                 <div class="row">
+                                    <div id="card-element">
+                                        <!-- Elements will create input elements here -->
+                                    </div>
+                                          <!-- We'll put the error messages in this element -->
+                                    <div id="card-errors" role="alert"></div>
                                     <div class="input-field col s12 m12 l12 center-align">
-                                        <button class="btn waves-effect waves-light indigo lighten-1" id="submit">Pay</button>
+                                        <button class="btn waves-effect waves-light indigo" id="submit">Pay</button>
                                     </div>
                                 </div>
                             </form>
